@@ -1,0 +1,23 @@
+name: CI workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# explanation:
+# - Run the workflow on every push to the main branch.
+# - Run the workflow whenever a pull request is created to the main branch.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3.9-slim
+
+# explanation:
+# A job called build is added to the workflow.
+# This job will run on the latest ubuntu-latest runner.
+# Tell Github Actions to use python:3.9-slim as the image.
+# It is important to consistently use the same version of dependencies and
+#   OS for all phases of development including the CI pipeline.
